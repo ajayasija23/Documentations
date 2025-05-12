@@ -174,3 +174,143 @@ viewModel.baseLiveData.observe(viewLifecycleOwner){
     }
 }
 ```
+
+# Android Project Naming Conventions
+
+This document outlines the standard naming conventions used across the Android application to ensure consistency, readability, and maintainability.
+
+---
+
+## 🧱 Project Structure
+
+| Component | Convention | Example |
+|----------|------------|---------|
+| Package Name | `lowercase.without.underscores` | `com.example.myapp` |
+| Folder Names | `lowercase` | `network`, `repository`, `ui` |
+
+---
+
+## 🧑‍💻 Class Naming
+
+| Type | Convention | Example |
+|------|------------|---------|
+| Activity | PascalCase + `Activity` suffix | `MainActivity`, `LoginActivity` |
+| Fragment | PascalCase + `Fragment` suffix | `HomeFragment`, `ProfileFragment` |
+| ViewModel | PascalCase + `ViewModel` suffix | `MainViewModel` |
+| Adapter | PascalCase + `Adapter` suffix | `UserAdapter` |
+| Data Class / Model | PascalCase | `User`, `Post`, `LoginRequest` |
+| Utility Class | PascalCase + `Utils`/`Helper` suffix | `DateUtils`, `ImageHelper` |
+
+---
+
+## 🧾 Variable Naming
+
+| Scope | Convention | Example |
+|-------|------------|---------|
+| Local Variable | camelCase | `userName`, `isLoggedIn` |
+| Constant (companion or top-level) | UPPER_SNAKE_CASE | `API_KEY`, `MAX_LENGTH` |
+| Global Variable | camelCase (prefer to avoid) | `currentUser` |
+
+---
+
+## 🧬 Function Naming
+
+| Type | Convention | Example |
+|------|------------|---------|
+| Regular Function | camelCase | `fetchUserData()`, `showDialog()` |
+| Callback Listener | camelCase + suffix | `onItemClicked()`, `onLoginSuccess()` |
+
+---
+
+## 🧱 Resource Naming
+
+### XML Layout Files
+
+| Type | Convention | Example |
+|------|------------|---------|
+| Activity | `activity_<name>.xml` | `activity_main.xml` |
+| Fragment | `fragment_<name>.xml` | `fragment_home.xml` |
+| RecyclerView Item | `item_<name>.xml` | `item_message.xml` |
+| Dialog | `dialog_<name>.xml` | `dialog_confirm.xml` |
+
+---
+
+### Drawables
+
+| Type | Convention | Example |
+|------|------------|---------|
+| Icon | `ic_<description>.xml/png` | `ic_user_profile.xml` |
+| Background | `bg_<description>.xml` | `bg_rounded_button.xml` |
+| Selector | `selector_<description>.xml` | `selector_button.xml` |
+
+---
+
+### IDs
+
+| Type | Convention | Example |
+|------|------------|---------|
+| Views | `type_description` | `btnLogin`, `tvTitle`, `rvMessages` |
+
+---
+
+### Strings
+
+| Type | Convention | Example |
+|------|------------|---------|
+| General Text | `label_<description>` | `label_username`, `label_password` |
+| Messages | `msg_<description>` | `msg_login_failed` |
+| Buttons | `btn_<description>` | `btn_submit`, `btn_cancel` |
+
+---
+
+## 🔗 API / Network Layer
+
+| Type | Convention | Example |
+|------|------------|---------|
+| API Interface | PascalCase + `Api` | `UserApi`, `AuthApi` |
+| DTO / Request | PascalCase + `Request`/`Response` | `LoginRequest`, `SignupResponse` |
+
+---
+
+## 🗃️ Database (Room)
+
+| Type | Convention | Example |
+|------|------------|---------|
+| Entity | PascalCase | `UserEntity`, `MessageEntity` |
+| DAO | PascalCase + `Dao` | `UserDao`, `MessageDao` |
+| Table Name | snake_case | `user_table`, `chat_table` |
+| Column Name | snake_case | `first_name`, `created_at` |
+
+---
+
+## 🧪 Test Naming
+
+| Type | Convention | Example |
+|------|------------|---------|
+| Unit Test File | `<ClassName>Test` | `MainViewModelTest` |
+| UI Test File | `<ClassName>Test` | `LoginActivityTest` |
+| Test Function | `should_<doSomething>_when_<condition>` | `shouldShowError_whenLoginFails()` |
+
+---
+
+## 🏁 Kotlin Specific
+
+| Type | Convention | Example |
+|------|------------|---------|
+| Extension Functions | camelCase, scoped | `fun View.hideKeyboard()` |
+| Sealed Classes | PascalCase | `UiState`, `ResultState` |
+
+---
+
+## ✅ Summary
+
+- Use **camelCase** for variables and functions.
+- Use **PascalCase** for classes and interfaces.
+- Use **UPPER_SNAKE_CASE** for constants.
+- Keep **resources lowercase with underscores**.
+- Be consistent across modules and developers.
+
+---
+
+> Following these conventions will improve code readability and teamwork across the project.
+
