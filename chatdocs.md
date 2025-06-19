@@ -55,7 +55,7 @@ https://staging-chat.example.fun/
 ### 📥 Connect to Socket
 
 ```javascript
-const socket = io("https://staging-chat.jokerz.fun", {
+const socket = io("https://staging-chat.example.com", {
   auth: {
     token: "YOUR_AUTH_TOKEN"
   }
