@@ -190,7 +190,7 @@ Marks all messages in a room as read by the current user.
 ---
 
 ## Stream Events
-```json
+```
 start_stream
 join_stream
 end_stream
