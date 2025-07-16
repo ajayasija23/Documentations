@@ -189,6 +189,20 @@ Marks all messages in a room as read by the current user.
 
 ---
 
+## Stream Events
+```json
+start_stream
+join_stream
+end_stream
+chat_message_stream  ---- events emit
+ 
+listen events--
+stream_started
+viewer_joined
+stream_ended
+stream_chat_message
+```
+
 ## 📝 Notes
 
 - All REST API endpoints require authentication via bearer token.
