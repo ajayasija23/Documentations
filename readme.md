@@ -1,92 +1,53 @@
-# 🎁 Live Streaming Gifting Flow Documentation
+# 🎁 Gifting Flow – Live Streaming App
 
-This document outlines the backend logic and flow of the gifting system used in a live streaming platform. The system supports both **regular live sessions** and **PK sessions** (Solo PK and Team PK).
-
----
-
-## 📌 Overview
-
-The gifting system enables users to send virtual gifts to hosts during live streams. Gifts impact host visibility, earnings, and in PK sessions, determine outcomes based on gift scores.
+This document outlines the gifting flow logic used in a live streaming platform. It supports different scenarios including **non-PK**, **Solo PK**, and **Team PK** sessions.
 
 ---
 
-## 🎬 Gifting Flow (Non-PK)
+## 🟩 Gifting When Not in PK
 
-1. **User Sends Gift**:
-   - Sender selects a gift and target host.
-   - Frontend sends the request to the backend.
-
-2. **Backend Flow**:
-   - Check sender’s wallet balance.
-   - Deduct coins based on gift value.
-   - Credit gift to the host.
-   - Update gift logs and statistics.
-
-3. **Response & Broadcast**:
-   - Notify sender of success/failure.
-   - Broadcast the gift to all viewers via socket/websocket.
+- Deduct the gift’s coin cost from the **sender’s balance**.
+- Credit the gift to the **receiver’s account**.
+- Validate that the sender has sufficient balance before proceeding.
 
 ---
 
-## ⚔️ Gifting Flow (PK Mode)
+## 🟦 Gifting During Solo PK
 
-PK Mode includes:
-- **Solo PK**: Host vs Host
-- **Team PK**: Team A vs Team B
-
-### 1. **Sender Initiates Gift**
-- Sender chooses a host (who is currently in a PK session).
-- Sends gift to that host.
-
-### 2. **Backend Flow**
-- Deduct coins from sender.
-- Credit gift to the receiver.
-- Update:
-  - Host's gift stats
-  - PK session stats (Host/Team scores)
-  - Real-time PK leaderboard (optional)
-
-### 3. **Special Considerations**
-- Ensure the PK session is active.
-- Validate if host/team is participating.
-- Assign the gift points to the correct PK side (Solo or Team).
-- Emit updated PK scores via socket to frontend.
+- The process remains the same as in the non-PK scenario:
+  - Deduct coins from the sender.
+  - Credit the gift to the selected host.
+- Additionally, keep track of the **total number of gifts received by each host**.
+- This data is used to determine the **PK result** at the end of the session.
 
 ---
 
-## 🧠 PK Result Evaluation
+## 🟨 Gifting During Team PK
 
-- After the PK ends, system compares total gift points:
-  - **Solo PK**: Host A vs Host B
-  - **Team PK**: Team A vs Team B
-
-- Winner is determined based on total gift value during PK duration.
-- Tie logic or bonus rounds can be configured if needed.
+- Follow the same base flow as in Solo PK.
+- Instead of tracking gifts per host, **aggregate gift totals for each team**.
+- The outcome of the PK battle is based on the **team’s total gift value**.
 
 ---
 
-## 📊 Optional Enhancements
+## ⚙️ General Notes
 
-- Combo gifts
-- Gift animations
-- Event-based bonuses (e.g., double gift points)
-- Analytics dashboard
-- VIP-only gifts
+- Make sure real-time events are emitted to update all participants in the room.
+- Display gift animations and update scores on both the sender and receiver sides.
+- Ensure backend validates room state (PK active/inactive) and user roles.
 
 ---
 
 ## ✅ Summary
 
-| Feature            | Supported |
-|--------------------|-----------|
-| Real-time delivery | ✅         |
-| PK-aware gifting   | ✅         |
-| Score tracking     | ✅         |
-| Modular logic      | ✅         |
+| Scenario      | Coin Deduction | Gift Crediting | Score Tracking |
+|---------------|----------------|----------------|----------------|
+| Not in PK     | ✅              | ✅              | ❌              |
+| Solo PK       | ✅              | ✅              | Per Host       |
+| Team PK       | ✅              | ✅              | Per Team       |
 
 ---
 
-## 📞 Need Help?
+## 📌 Conclusion
 
-For questions or integration support, feel free to reach out to the backend team.
-
+This gifting flow ensures a seamless experience for both viewers and streamers, while supporting competitive PK formats. It can be easily extended with features like combo gifts, multipliers, and real-time leaderboards.
