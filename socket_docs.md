@@ -8,7 +8,7 @@ This document outlines the REST API endpoints and Socket.IO events for integrati
 ## 🌐 Base URL
 
 ```
-https://staging-chat.example.fun/
+https://staging-ws.jokerz.fun/
 ```
 
 ---
@@ -55,7 +55,7 @@ https://staging-chat.example.fun/
 ### 📥 Connect to Socket
 
 ```javascript
-const socket = io("https://staging-chat.example.com", {
+const socket = io("https://staging-ws.jokerz.fun", {
   auth: {
     token: "YOUR_AUTH_TOKEN"
   }
