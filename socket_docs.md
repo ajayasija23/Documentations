@@ -410,7 +410,7 @@ const socket = io("https://staging-ws.jokerz.fun", {
 }
 ```
 
-** Start Pk Invite(`create_pk_team_invite`) **
+**Start Pk Invite(`create_pk_team_invite`):**
 ```json
 {
   "hostId": "35",
@@ -433,7 +433,7 @@ const socket = io("https://staging-ws.jokerz.fun", {
   ]
 }
 ```
-** team_invite_received **
+**team_invite_received**
 ```json
 {
   "id": "invite_1754601065288_doyio0epe",
