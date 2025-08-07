@@ -189,7 +189,54 @@ Marks all messages in a room as read by the current user.
 
 ---
 
-## Stream Events
+#Jokerz Streaming Docs
+
+When starting a stream client will emit
+**start_stream**
+```json
+{
+  "hostId": "12345",
+  "streamId": "abcde",
+  "metaData": {
+    "title": "Live Cooking Show",
+    "goal_id": "goal_6789",
+    "user_id": "user_001",
+    "picture_url": "https://example.com/image.jpg",
+    "is_public": true,
+    "topic_id": "topic_123"
+  }
+}
+```
+Server will emit stream_started to all online users
+**stream_started**
+```json
+{
+  "isInvited": false,
+  "agencyEarning": "500",
+  "audienceCount": 120,
+  "coinsReceived": "1500",
+  "createdAt": "2025-08-08T10:30:00Z",
+  "duration": "45",
+  "force_ended": false,
+  "hostEarning": "1000",
+  "hostId": 9876,
+  "id": "live_001",
+  "isEnded": false,
+  "parentAgencyEarning": "300",
+  "streamId": "stream_abc123",
+  "updatedAt": "2025-08-08T11:15:00Z",
+  "userName": "AjayAsija",
+  "userPic": "https://example.com/avatar.jpg",
+  "metaData": {
+    "title": "Tech Talk with Ajay",
+    "goal_id": "goal_123",
+    "user_id": "user_987",
+    "picture_url": "https://example.com/thumbnail.jpg",
+    "is_public": true,
+    "topic_id": "topic_xyz"
+  }
+}```
+
 ```
 start_stream
 join_stream
