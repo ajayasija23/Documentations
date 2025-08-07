@@ -237,18 +237,66 @@ Server will emit stream_started to all online users
   }
 }```
 
+To end stream 
+
+Client Emit
+```json
+{
+  "hostId": "35",
+  "metaData": {
+    "goal_id": "1528371c-0329-4b37-a816-085ce06f3374",
+    "is_public": true,
+    "picture_url": "https://firebasestorage.googleapis.com/v0/b/jokerz-ea1b2.firebasestorage.app/o/dev%2Fuploads%2Fstream_35?alt\u003dmedia\u0026token\u003dd8c90e3d-74e8-4375-a935-2b7f3c5a8198",
+    "title": "zjzjdjdjhdhd",
+    "topic_id": "63837a11-1d76-47c9-92a6-7783489f6afd",
+    "user_id": "5898cf04-2edb-446f-92b4-39dea8b760d5"
+  },
+  "streamId": "509101"
+}
 ```
-start_stream
-join_stream
-end_stream
-chat_message_stream  ---- events emit
- 
-listen events--
-stream_started
-viewer_joined
-stream_ended
-stream_chat_message
+Server emit
+
+**stream_ended**
+```json
+{
+      "streamerName": "aja",
+      "id": "ad32b25a-a1ce-4f82-962f-792724f88470",
+      "hostId": 41,
+      "userName": "aja",
+      "userPic": "https://firebasestorage.googleapis.com/v0/b/jokerz-ea1b2.firebasestorage.app/o/dev%2Fuploads%2F41?alt\u003dmedia\u0026token\u003dab017624-068e-4f48-9dd6-6738bdf7ce4c",
+      "streamId": "216896",
+      "duration": "0",
+      "coinsReceived": "0",
+      "hostEarning": "0",
+      "agencyEarning": "0",
+      "parentAgencyEarning": "0",
+      "audienceCount": 0,
+      "isEnded": true,
+      "createdAt": "2025-08-07T20:28:01.618Z",
+      "updatedAt": "2025-08-07T20:28:01.618Z",
+      "force_ended": false
+}
 ```
+
+To Join a Stream client emit 
+
+**join_stream**
+```json
+{
+  "unique_id": "35",
+  "streamId": "535982",
+  "user_pic": "https://firebasestorage.googleapis.com/v0/b/jokerz-ea1b2.firebasestorage.app/o/dev%2Fuploads%2F35?alt\u003dmedia\u0026token\u003dacdef4b9-9e95-4449-a34a-1a83f2d22a61"
+}
+```
+**viewer_joined**
+```json
+{
+      "viewerId": "f058a15d-9280-432f-9cc2-3ab327adcced",
+      "viewerName": "aja",
+      "user_pic": "https://firebasestorage.googleapis.com/v0/b/jokerz-ea1b2.firebasestorage.app/o/dev%2Fuploads%2F41?alt\u003dmedia\u0026token\u003dab017624-068e-4f48-9dd6-6738bdf7ce4c",
+      "unique_id": "41"
+}```
+
 
 ## 📝 Notes
 
