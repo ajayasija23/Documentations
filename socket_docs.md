@@ -303,6 +303,138 @@ const socket = io("https://staging-ws.jokerz.fun", {
   "unique_id": "41"
 }
 ```
+### 💥Barrage Messages
+
+**Client Emit (`chat_message_stream`):**
+```json
+{
+  "streamId": "865849",
+  "userId": "f058a15d-9280-432f-9cc2-3ab327adcced",
+  "username": "aja",
+  "user_pic": "https:\/\/firebasestorage.googleapis.com\/v0\/b\/jokerz-ea1b2.firebasestorage.app\/o\/dev%2Fuploads%2F41?alt=media&token=ab017624-068e-4f48-9dd6-6738bdf7ce4c",
+  "message": "Sent a gift",
+  "timestamp": "2025-08-07T20:52:15.443Z",
+  "type": "gift",
+  "gift_data": {
+    "from_id": "35",
+    "gift_coins": "1000",
+    "gift_icon": "https:\/\/jokerzfun-bucket.s3.ap-southeast-1.amazonaws.com\/gifts\/images\/2025021722103005.png",
+    "gift_id": "6b996f34-ecf1-4b51-8df4-36997370a49a",
+    "gift_name": "Marry me",
+    "gift_url": "https:\/\/jokerzfun-bucket.s3.ap-southeast-1.amazonaws.com\/gifts\/videos\/2025021722103005.mp4",
+    "to_id": "41",
+    "streamId": "865849"
+  }
+}
+```
+**Server Emit (`stream_chat_message`):**
+```json
+{
+  "streamId": "865849",
+  "userId": "f058a15d-9280-432f-9cc2-3ab327adcced",
+  "username": "aja",
+  "user_pic": "https:\/\/firebasestorage.googleapis.com\/v0\/b\/jokerz-ea1b2.firebasestorage.app\/o\/dev%2Fuploads%2F41?alt=media&token=ab017624-068e-4f48-9dd6-6738bdf7ce4c",
+  "message": "Sent a gift",
+  "timestamp": "2025-08-07T20:52:15.443Z",
+  "type": "gift",
+  "gift_data": {
+    "from_id": "35",
+    "gift_coins": "1000",
+    "gift_icon": "https:\/\/jokerzfun-bucket.s3.ap-southeast-1.amazonaws.com\/gifts\/images\/2025021722103005.png",
+    "gift_id": "6b996f34-ecf1-4b51-8df4-36997370a49a",
+    "gift_name": "Marry me",
+    "gift_url": "https:\/\/jokerzfun-bucket.s3.ap-southeast-1.amazonaws.com\/gifts\/videos\/2025021722103005.mp4",
+    "to_id": "41",
+    "streamId": "865849"
+  }
+}
+```
+
+### PK Battle
+
+**Invite for connection**
+```json
+{
+  "challengerId": 41,
+  "hostId": "35",
+  "streamId": "412695",
+  "extraInfo": {
+    "hostUserName": "sameer",
+    "hostUserPic": "https://firebasestorage.googleapis.com/v0/b/jokerz-ea1b2.firebasestorage.app/o/dev%2Fuploads%2F35?alt\u003dmedia\u0026token\u003dacdef4b9-9e95-4449-a34a-1a83f2d22a61"
+  }
+}
+```
+
+**Connection Invite Received**
+```json
+{
+  "inviteId": "634592-room",
+  "hostId": "41",
+  "challengerId": 35,
+  "streamId": "634592",
+  "extraInfo": {
+    "hostUserName": "aja",
+    "hostUserPic": "https:\/\/firebasestorage.googleapis.com\/v0\/b\/jokerz-ea1b2.firebasestorage.app\/o\/dev%2Fuploads%2F41?alt=media&token=ab017624-068e-4f48-9dd6-6738bdf7ce4c"
+  }
+}
+```
+**accept_pk_invite**
+```json
+{
+  "userId": 35,
+  "inviteId": "634592-room"
+}
+```
+**pk-battle-invite-accepted**
+```json
+{
+  "invite": {
+    "streamId": "360174",
+    "hostId": "35",
+    "extraInfo": {
+      "hostUserName": "sameer",
+      "hostUserPic": "https:\/\/firebasestorage.googleapis.com\/v0\/b\/jokerz-ea1b2.firebasestorage.app\/o\/dev%2Fuploads%2F35?alt=media&token=acdef4b9-9e95-4449-a34a-1a83f2d22a61"
+    },
+    "to": [
+      {
+        "userId": 41,
+        "username": "aja",
+        "status": "accepted"
+      }
+    ],
+    "inviteId": "360174-room",
+    "status": "accepted",
+    "createdAt": "2025-08-07T21:02:06.858Z",
+    "updatedAt": "2025-08-07T21:02:10.421Z"
+  }
+}
+```
+
+*** Start Pk Invite(`create_pk_team_invite`) ***
+```json
+{
+  "hostId": "35",
+  "type": "friend",
+  "team1": [
+    {
+      "profilePic": "https://firebasestorage.googleapis.com/v0/b/jokerz-ea1b2.firebasestorage.app/o/dev%2Fuploads%2F35?alt\u003dmedia\u0026token\u003dacdef4b9-9e95-4449-a34a-1a83f2d22a61",
+      "streamId": "560273_35_main_host",
+      "userId": "35",
+      "userName": "sameer"
+    }
+  ],
+  "team2": [
+    {
+      "profilePic": "https://firebasestorage.googleapis.com/v0/b/jokerz-ea1b2.firebasestorage.app/o/dev%2Fuploads%2F41?alt\u003dmedia\u0026token\u003dab017624-068e-4f48-9dd6-6738bdf7ce4c",
+      "streamId": "102743_41_main_host",
+      "userId": "41",
+      "userName": "aja"
+    }
+  ]
+}
+```
+
+
 
 ---
 
