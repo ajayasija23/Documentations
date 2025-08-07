@@ -209,8 +209,7 @@ When starting a stream client will emit
 ```
 Server will emit stream_started to all online users
 **stream_started**
-```json
-{
+```json{
   "isInvited": false,
   "agencyEarning": "500",
   "audienceCount": 120,
@@ -235,7 +234,7 @@ Server will emit stream_started to all online users
     "is_public": true,
     "topic_id": "topic_xyz"
   }
-}```
+}
 
 To end stream 
 
