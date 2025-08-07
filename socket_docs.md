@@ -205,11 +205,12 @@ When starting a stream client will emit
     "is_public": true,
     "topic_id": "topic_123"
   }
-}
-```
+}```
+
 Server will emit stream_started to all online users
 **stream_started**
-```json{
+```
+{
   "isInvited": false,
   "agencyEarning": "500",
   "audienceCount": 120,
