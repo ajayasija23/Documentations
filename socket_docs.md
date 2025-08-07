@@ -410,7 +410,7 @@ const socket = io("https://staging-ws.jokerz.fun", {
 }
 ```
 
-*** Start Pk Invite(`create_pk_team_invite`) ***
+** Start Pk Invite(`create_pk_team_invite`) **
 ```json
 {
   "hostId": "35",
@@ -433,8 +433,73 @@ const socket = io("https://staging-ws.jokerz.fun", {
   ]
 }
 ```
+** team_invite_received **
+```json
+{
+  "id": "invite_1754601065288_doyio0epe",
+  "from": [
+    {
+      "profilePic": "https:\/\/firebasestorage.googleapis.com\/v0\/b\/jokerz-ea1b2.firebasestorage.app\/o\/dev%2Fuploads%2F41?alt=media&token=ab017624-068e-4f48-9dd6-6738bdf7ce4c",
+      "streamId": "650928_41_main_host",
+      "userId": "41",
+      "userName": "aja"
+    }
+  ],
+  "to": [
+    {
+      "profilePic": "https:\/\/firebasestorage.googleapis.com\/v0\/b\/jokerz-ea1b2.firebasestorage.app\/o\/dev%2Fuploads%2F35?alt=media&token=acdef4b9-9e95-4449-a34a-1a83f2d22a61",
+      "streamId": "470944_35_main_host",
+      "userId": "35",
+      "userName": "sameer"
+    }
+  ],
+  "status": "pending",
+  "hostId": "41",
+  "type": "friend"
+}
+```
 
+**accept_pk_team_invite**
+```json
+{
+  "userId": "35",
+  "inviteId": "invite_1754601065288_doyio0epe"
+}
+```
 
+**team_battle_started**
+```json
+{
+  "id": "battle_1754601258204_9vofhjhf7",
+  "hostId": "41",
+  "participants": [
+    [
+      {
+        "userId": "41",
+        "username": "aja",
+        "score": 0,
+        "gifts": 0,
+        "profile_pic": null
+      }
+    ],
+    [
+      {
+        "userId": "35",
+        "username": "sameer",
+        "score": 0,
+        "gifts": 0,
+        "profile_pic": null
+      }
+    ]
+  ],
+  "status": "active",
+  "startTime": "2025-08-07T21:14:18.204Z",
+  "duration": 240000,
+  "maxParticipants": 2,
+  "totalGifts": 0,
+  "battle_type": "friend"
+}
+```
 
 ---
 
